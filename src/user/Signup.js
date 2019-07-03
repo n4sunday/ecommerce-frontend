@@ -1,5 +1,11 @@
 import React from 'react'
+import Layout from '../cors/Layout'
 
-const Signup = () => <div>Signup</div>
+const Signup = () => (
+    <Layout title="Signup" description="Signup to Nodde React E-commerce App">
+        ... 
+    </Layout>
+)
 
 export default Signup
+
