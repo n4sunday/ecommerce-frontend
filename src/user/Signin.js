@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 import { Redirect } from 'react-router-dom'
 import Layout from '../cors/Layout'
-import { signin } from '../auth'
+import { signin, authenticate } from '../auth'
 
 const Signin = () => {
     const [values, setValues] = useState({
-        email: '',
-        password: '',
+        email: 's5935510204@phuket.psu.ac.th',
+        password: '12345s',
         error: '',
         loading: false,
         redirectToReferrer: false,
@@ -27,9 +27,11 @@ const Signin = () => {
                 if (data.error) {
                     setValues({ ...values, error: data.error, loading: false })
                 } else {
-                    setValues({
-                        ...values,
-                        redirectToReferrer: true
+                    authenticate(data, () => {
+                        setValues({
+                            ...values,
+                            redirectToReferrer: true
+                        })
                     })
                 }
             }
