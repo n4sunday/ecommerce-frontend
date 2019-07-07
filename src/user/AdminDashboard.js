@@ -30,13 +30,13 @@ const AdminDashboard = () => {
                 <ul className="list-group">
                     <li className="list-group-item">{name}</li>
                     <li className="list-group-item">{email}</li>
-                    <li className="list-group-item">{role === 1 ? 'Admin'}</li>
+                    <li className="list-group-item">{role === 1 ? 'Admin': 'Registered User'}</li>
                 </ul>
             </div>
         )
     }
 
-    
+
     return (
         <Layout title='Dashboard' description={`G'day ${name}!`} className="container-fluid">
 
@@ -46,7 +46,6 @@ const AdminDashboard = () => {
                 </div>
                 <div className="col-9">
                     {adminInfo()}
-                    {purchaseHistory()}
                 </div>
             </div>
         </Layout>
