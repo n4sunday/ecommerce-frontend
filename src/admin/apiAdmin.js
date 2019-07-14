@@ -6,7 +6,7 @@ export const createCategory = (userId, token, category) => {
         headers: {
             Accept: "application/json",
             "Content-Type": "application/json",
-            Authorization: `Bearer ${token}` 
+            Authorization: `Bearer ${token}`
         },
         body: JSON.stringify(category)
     })
@@ -34,3 +34,31 @@ export const createProduct = (userId, token, product) => {
             console.log(err)
         })
 }
+
+export const getCategories = () => {
+    return fetch(`${API}/categories`, {
+        method: 'GET'
+    })
+        .then(response => {
+            return response.json()
+        })
+        .catch(err => console.log(err))
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
