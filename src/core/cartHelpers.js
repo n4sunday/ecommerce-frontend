@@ -1,8 +1,8 @@
 export const addItem = (item, next) => {
     let cart = []
-    if (typeof window !== "undefined") {
-        if (localStorage.getItem("cart")) {
-            cart = JSON.parse(localStorage.getItem("cart"))
+    if (typeof window !== 'undefined') {
+        if (localStorage.getItem('cart')) {
+            cart = JSON.parse(localStorage.getItem('cart'))
         }
         cart.push({
             ...item,
@@ -13,8 +13,17 @@ export const addItem = (item, next) => {
             return cart.find(p => p._id === id)
         })
 
-        localStorage.setItem("cart", JSON.stringify(cart))
+        localStorage.setItem('cart', JSON.stringify(cart))
         next()
 
     }
+}
+
+export const itemTotal = () => {
+    if (window !== 'undefined') {
+        if (localStorage.getItem('cart')) {
+            return JSON.parse(localStorage.getItem('cart')).length
+        }
+    }
+    return 0
 }
