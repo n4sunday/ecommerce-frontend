@@ -65,7 +65,7 @@ const Shop = () => {
     useEffect(() => {
         init();
         loadFilteredResults(skip, limit, myFilters.filters);
-    }, []);
+    }, [limit, loadFilteredResults, myFilters.filters, skip]);
 
     const handleFilters = (filters, filterBy) => {
         // console.log('Shop', filters, filterBy)
@@ -129,10 +129,12 @@ const Shop = () => {
                     <h2 className="mb-4">Product</h2>
                     <div className="row">
                         {filteredResults.map((product, i) => (
-                            <Card key={i} product={product} />
+                            <div key={i} className="col-4 mb-3">
+                                <Card product={product} />
+                            </div>
                         ))}
                     </div>
-                    <hr/>
+                    <hr />
                     {loadMoreButton()}
                 </div>
             </div>
